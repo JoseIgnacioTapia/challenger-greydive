@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { GlobalStyle } from './GlobalStyle';
-import SurveyPage from './assets/pages/SurveyPage';
+import Answers from './pages/Answers';
+import NotFoundPage from './pages/NotFoundPage';
+import SurveyPage from './pages/SurveyPage';
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SurveyPage />} />
+          <Route path="/answers" element={<Answers />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </>
