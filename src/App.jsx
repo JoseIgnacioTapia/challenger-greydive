@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { GlobalStyle } from './GlobalStyle';
-import Answers from './pages/Answers';
-import NotFoundPage from './pages/NotFoundPage';
-import SurveyPage from './pages/SurveyPage';
+import Answers from './pages/Answers/Answers';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import SurveyPage from './pages/SurveyPage/SurveyPage';
 
 function App() {
   return (

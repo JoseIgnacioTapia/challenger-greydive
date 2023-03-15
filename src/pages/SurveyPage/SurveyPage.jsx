@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getQuestionsItems } from '../features/questionsAnswers/questionsAnswers.js';
+import { getQuestionsItems } from '../../features/questionsAnswers/questionsAnswers.js';
 
 function SurveyPage() {
   const { questions } = useSelector(state => state.questionsAnswers);
