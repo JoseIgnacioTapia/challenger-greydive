@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import FullNameField from '../../components/FullNameField/FullNameField.jsx';
 import { getQuestionsItems } from '../../features/questionsAnswers/questionsAnswers.js';
 import { Container } from './SurvePage.styles.jsx';
 
@@ -20,15 +21,15 @@ function SurveyPage() {
         {questions?.map(question => {
           switch (question.type) {
             case 'text':
-              return <p>{question.label}</p>;
+              return <FullNameField key={question.label} question={question} />;
             case 'email':
-              return <p>{question.label}</p>;
+              return <p key={question.label}>{question.label}</p>;
             case 'date':
-              return <p>{question.label}</p>;
+              return <p key={question.label}>{question.label}</p>;
             case 'select':
-              return <p>{question.label}</p>;
+              return <p key={question.label}>{question.label}</p>;
             case 'checkbox':
-              return <p>{question.label}</p>;
+              return <p key={question.label}>{question.label}</p>;
             default:
               return null;
           }
