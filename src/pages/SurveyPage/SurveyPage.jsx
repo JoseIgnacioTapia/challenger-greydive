@@ -17,6 +17,7 @@ function SurveyPage() {
   return (
     <Container>
       <h1>Challenge Greydive</h1>
+      <p>Respuesta requerida</p>
       <form>
         {questions?.map(question => {
           switch (question.type) {

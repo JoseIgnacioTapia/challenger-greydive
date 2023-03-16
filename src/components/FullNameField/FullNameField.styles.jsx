@@ -9,6 +9,12 @@ export const FullNameContainer = styled.div`
 
   label {
     flex-grow: 0;
+    letter-spacing: 1px;
+
+    span {
+      color: var(--warning-color);
+      padding-left: 2px;
+    }
   }
 
   input {
@@ -16,6 +22,7 @@ export const FullNameContainer = styled.div`
     margin-left: 1rem;
     padding: 0.4rem;
     border: none;
+    border-radius: 5px;
 
     &:focus {
       border: 2px solid var(--primary-color);

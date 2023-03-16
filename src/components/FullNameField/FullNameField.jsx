@@ -5,7 +5,9 @@ function FullNameField(props) {
 
   return (
     <FullNameContainer>
-      <label htmlFor={name}>{label}:</label>
+      <label htmlFor={name}>
+        {label}:{required && <span>*</span>}
+      </label>
       <input
         type="text"
         name={name}

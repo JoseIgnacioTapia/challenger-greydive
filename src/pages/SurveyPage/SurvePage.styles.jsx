@@ -14,4 +14,19 @@ export const Container = styled.div`
     color: var(--black);
     font-size: 3rem;
   }
+
+  p {
+    background-color: inherit;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--warning-color);
+
+    &::before {
+      content: '*';
+      padding-right: 4px;
+    }
+  }
+
+  form {
+    margin: 1rem 0;
+  }
 `;
