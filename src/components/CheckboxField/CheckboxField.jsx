@@ -1,7 +1,8 @@
 import { CheckboxContainer } from './CheckboxField.styles';
 
 function CheckboxField(props) {
-  const { label, name, required, value, onChange } = props.question;
+  const { label, name, required } = props.question;
+  const { value, onChange } = props;
 
   return (
     <CheckboxContainer>

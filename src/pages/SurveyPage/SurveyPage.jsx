@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
 import FullNameField from '../../components/FullNameField/FullNameField.jsx';
 import EmailField from '../../components/EmailField/EmailField.jsx';
 import DateField from '../../components/DateField/DateField.jsx';
@@ -9,6 +10,17 @@ import Button from '../../components/Button/Button.jsx';
 import { getQuestionsItems } from '../../features/questionsAnswers/questionsAnswers.js';
 import { Container } from './SurvePage.styles.jsx';
 
+import { useForm } from '../../hooks/useForm.js';
+import { validationsForm } from '../../utils/validationsForm.js';
+
+const initialForm = {
+  full_name: '',
+  email: '',
+  birth_date: '',
+  country_of_origin: '',
+  terms_and_conditions: '',
+};
+
 function SurveyPage() {
   const { questions } = useSelector(state => state.questionsAnswers);
   const dispatch = useDispatch();
@@ -17,7 +29,15 @@ function SurveyPage() {
     dispatch(getQuestionsItems());
   }, [dispatch]);
 
-  console.log(questions);
+  const {
+    form,
+    errors,
+    loading,
+    response,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+  } = useForm(initialForm, validationsForm);
 
   return (
     <Container>
@@ -27,17 +47,50 @@ function SurveyPage() {
         {questions?.map(question => {
           switch (question.type) {
             case 'text':
-              return <FullNameField key={question.label} question={question} />;
+              return (
+                <FullNameField
+                  value={form.full_name}
+                  onChange={handleChange}
+                  key={question.label}
+                  question={question}
+                />
+              );
             case 'email':
-              return <EmailField key={question.label} question={question} />;
+              return (
+                <EmailField
+                  value={form.email}
+                  onChange={handleChange}
+                  key={question.label}
+                  question={question}
+                />
+              );
             case 'date':
-              return <DateField key={question.label} question={question} />;
+              return (
+                <DateField
+                  value={form.birth_date}
+                  onChange={handleChange}
+                  key={question.label}
+                  question={question}
+                />
+              );
             case 'select':
               return (
-                <SelectCountryField key={question.label} question={question} />
+                <SelectCountryField
+                  value={form.country_of_origin}
+                  onChange={handleChange}
+                  key={question.label}
+                  question={question}
+                />
               );
             case 'checkbox':
-              return <CheckboxField key={question.label} question={question} />;
+              return (
+                <CheckboxField
+                  value={form.terms_and_conditions}
+                  onChange={handleChange}
+                  key={question.label}
+                  question={question}
+                />
+              );
             case 'submit':
               return (
                 <Button
