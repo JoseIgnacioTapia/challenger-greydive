@@ -1,14 +1,9 @@
 import styled from 'styled-components';
 
-export const EmailContainer = styled.div`
-  width: 100%;
+export const DateContainer = styled.div`
   padding: 1rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
   label {
-    flex-grow: 0;
     letter-spacing: 1px;
 
     span {
@@ -18,10 +13,9 @@ export const EmailContainer = styled.div`
   }
 
   input {
-    flex-grow: 1;
     margin-left: 1rem;
-    padding: 0.4rem;
     border: none;
+    padding: 0.4rem;
     border-radius: 5px;
 
     &:focus {

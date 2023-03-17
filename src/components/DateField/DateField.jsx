@@ -1,22 +1,22 @@
-import { EmailContainer } from './EmailField.styles';
+import { DateContainer } from './DateField.styles';
 
-function EmailField(props) {
+function DateField(props) {
   const { label, name, required, value, onChange } = props.question;
 
   return (
-    <EmailContainer>
+    <DateContainer>
       <label htmlFor={name}>
         {label}:{required && <span>*</span>}
       </label>
       <input
-        type="email"
+        type="date"
         name={name}
         id={name}
         value={value}
         onChange={onChange}
       />
-    </EmailContainer>
+    </DateContainer>
   );
 }
 
-export default EmailField;
+export default DateField;

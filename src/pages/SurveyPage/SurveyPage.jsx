@@ -1,6 +1,11 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import FullNameField from '../../components/FullNameField/FullNameField.jsx';
+import EmailField from '../../components/EmailField/EmailField.jsx';
+import DateField from '../../components/DateField/DateField.jsx';
+import SelectCountryField from '../../components/SelectField/SelectCountryField.jsx';
+import CheckboxField from '../../components/CheckboxField/CheckboxField';
+import Button from '../../components/Button/Button.jsx';
 import { getQuestionsItems } from '../../features/questionsAnswers/questionsAnswers.js';
 import { Container } from './SurvePage.styles.jsx';
 
@@ -24,18 +29,27 @@ function SurveyPage() {
             case 'text':
               return <FullNameField key={question.label} question={question} />;
             case 'email':
-              return <p key={question.label}>{question.label}</p>;
+              return <EmailField key={question.label} question={question} />;
             case 'date':
-              return <p key={question.label}>{question.label}</p>;
+              return <DateField key={question.label} question={question} />;
             case 'select':
-              return <p key={question.label}>{question.label}</p>;
+              return (
+                <SelectCountryField key={question.label} question={question} />
+              );
             case 'checkbox':
-              return <p key={question.label}>{question.label}</p>;
+              return <CheckboxField key={question.label} question={question} />;
+            case 'submit':
+              return (
+                <Button
+                  key={question.label}
+                  type={question.type}
+                  label={question.label}
+                />
+              );
             default:
               return null;
           }
         })}
-        <button type="submit">Enviar</button>
       </form>
     </Container>
   );

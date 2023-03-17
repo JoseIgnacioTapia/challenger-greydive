@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: 0 auto;
+  margin: 2rem auto;
   padding: 0 5rem;
   background-color: var(--secondary-color);
   width: 70%;
-  height: 500px;
+  height: auto;
 
   h1 {
     padding: 3rem 0;
