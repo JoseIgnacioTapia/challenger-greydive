@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin: 2rem auto;
-  padding: 0 5rem;
+  padding: 0 8rem;
   background-color: var(--secondary-color);
-  width: 70%;
+  width: 60%;
   height: auto;
 
   h1 {

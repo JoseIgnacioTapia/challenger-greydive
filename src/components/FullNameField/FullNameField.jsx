@@ -1,7 +1,8 @@
 import { FullNameContainer } from './FullNameField.styles';
 
 function FullNameField(props) {
-  const { label, name, required, value, onChange } = props.question;
+  const { label, name, required } = props.question;
+  const { value, onChange } = props;
 
   return (
     <FullNameContainer>

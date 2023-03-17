@@ -1,7 +1,8 @@
 import { EmailContainer } from './EmailField.styles';
 
 function EmailField(props) {
-  const { label, name, required, value, onChange } = props.question;
+  const { label, name, required } = props.question;
+  const { value, onChange } = props;
 
   return (
     <EmailContainer>

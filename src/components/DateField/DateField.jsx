@@ -1,7 +1,8 @@
 import { DateContainer } from './DateField.styles';
 
 function DateField(props) {
-  const { label, name, required, value, onChange } = props.question;
+  const { label, name, required } = props.question;
+  const { value, onChange } = props;
 
   return (
     <DateContainer>
