@@ -2,7 +2,7 @@ import { DateContainer } from './DateField.styles';
 
 function DateField(props) {
   const { label, name, required } = props.question;
-  const { value, onChange } = props;
+  const { value, onChange, onBlur } = props;
 
   return (
     <DateContainer>
@@ -15,6 +15,7 @@ function DateField(props) {
         id={name}
         value={value}
         onChange={onChange}
+        onBlur={onBlur}
       />
     </DateContainer>
   );

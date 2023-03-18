@@ -1,8 +1,8 @@
 import { SelectContainer } from './SelectCountryField.styles';
 
 function SelectCountryField(props) {
-  const { label, name, options, value, required } = props.question;
-  const { onChange } = props;
+  const { label, name, options, required } = props.question;
+  const { value, onChange, onBlur } = props;
 
   return (
     <SelectContainer>
@@ -10,10 +10,16 @@ function SelectCountryField(props) {
         {label}
         {required && <span>*</span>}
       </label>
-      <select defaultValue="default" name={name} id={name} onChange={onChange}>
+      <select
+        defaultValue="default"
+        name={name}
+        id={name}
+        onChange={onChange}
+        onBlur={onBlur}
+      >
         <option value="default">Elija su país</option>
         {options?.map(country => (
-          <option key={country.label} value={value}>
+          <option key={country.label} value={country.value}>
             {country.label}
           </option>
         ))}

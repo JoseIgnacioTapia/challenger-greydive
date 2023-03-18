@@ -2,7 +2,7 @@ import { EmailContainer } from './EmailField.styles';
 
 function EmailField(props) {
   const { label, name, required } = props.question;
-  const { value, onChange } = props;
+  const { value, onChange, onBlur } = props;
 
   return (
     <EmailContainer>
@@ -15,6 +15,7 @@ function EmailField(props) {
         id={name}
         value={value}
         onChange={onChange}
+        onBlur={onBlur}
       />
     </EmailContainer>
   );

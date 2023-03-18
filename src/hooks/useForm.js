@@ -9,21 +9,19 @@ export const useForm = (initialForm, validateForm) => {
   const [response, setResponse] = useState(null);
 
   const handleChange = e => {
-    let newValues = {};
-
-    if ((e.target.name = 'terms_and_conditions')) {
-      newValues = {
-        ...form,
-        terms_and_conditions: e.target.checked,
-      };
-    } else {
-      newValues = {
-        ...form,
-        [e.target.name]: e.target.value,
-      };
-    }
+    const newValues =
+      e.target.name === 'terms_and_conditions'
+        ? {
+            ...form,
+            terms_and_conditions: e.target.checked,
+          }
+        : {
+            ...form,
+            [e.target.name]: e.target.value,
+          };
 
     setForm(newValues);
+    setErrors(validateForm(newValues));
   };
 
   const handleBlur = e => {
@@ -33,11 +31,13 @@ export const useForm = (initialForm, validateForm) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    setErrors(validateForm(form));
 
     if (Object.keys(validateForm(form)).length === 0) {
       setLoading(true);
 
       try {
+        console.log('enviando');
         await fetch();
         setLoading(false);
         setResponse(true);

@@ -2,7 +2,7 @@ import { FullNameContainer } from './FullNameField.styles';
 
 function FullNameField(props) {
   const { label, name, required } = props.question;
-  const { value, onChange } = props;
+  const { value, onChange, onBlur } = props;
 
   return (
     <FullNameContainer>
@@ -15,6 +15,7 @@ function FullNameField(props) {
         id={name}
         value={value}
         onChange={onChange}
+        onBlur={onBlur}
       />
     </FullNameContainer>
   );

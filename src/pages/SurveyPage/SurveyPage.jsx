@@ -42,54 +42,69 @@ function SurveyPage() {
   return (
     <Container>
       <h1>Challenge Greydive</h1>
-      <p>Respuesta requerida</p>
-      <form>
+      <p>* Respuesta requerida</p>
+      <form onSubmit={handleSubmit}>
         {questions?.map(question => {
           switch (question.type) {
             case 'text':
               return (
-                <FullNameField
-                  value={form.full_name}
-                  onChange={handleChange}
-                  key={question.label}
-                  question={question}
-                />
+                <div key={question.label}>
+                  <FullNameField
+                    value={form.full_name}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    question={question}
+                  />
+                  {errors.name && <p>*{errors.name}</p>}
+                </div>
               );
             case 'email':
               return (
-                <EmailField
-                  value={form.email}
-                  onChange={handleChange}
-                  key={question.label}
-                  question={question}
-                />
+                <div key={question.label}>
+                  <EmailField
+                    value={form.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    question={question}
+                  />
+                  {errors.email && <p>*{errors.email}</p>}
+                </div>
               );
             case 'date':
               return (
-                <DateField
-                  value={form.birth_date}
-                  onChange={handleChange}
-                  key={question.label}
-                  question={question}
-                />
+                <div key={question.label}>
+                  <DateField
+                    value={form.birth_date}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    key={question.label}
+                    question={question}
+                  />
+                  {errors.date && <p>*{errors.date}</p>}
+                </div>
               );
             case 'select':
               return (
-                <SelectCountryField
-                  value={form.country_of_origin}
-                  onChange={handleChange}
-                  key={question.label}
-                  question={question}
-                />
+                <div key={question.label}>
+                  <SelectCountryField
+                    value={form.country_of_origin}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    question={question}
+                  />
+                  {errors.country && <p>*{errors.country}</p>}
+                </div>
               );
             case 'checkbox':
               return (
-                <CheckboxField
-                  value={form.terms_and_conditions}
-                  onChange={handleChange}
-                  key={question.label}
-                  question={question}
-                />
+                <div key={question.label}>
+                  <CheckboxField
+                    value={form.terms_and_conditions}
+                    onChange={handleChange}
+                    question={question}
+                  />
+                  {errors.checkbox && <p>*{errors.checkbox}</p>}
+                </div>
               );
             case 'submit':
               return (

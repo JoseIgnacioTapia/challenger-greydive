@@ -19,11 +19,7 @@ export const Container = styled.div`
     background-color: inherit;
     font-family: Arial, Helvetica, sans-serif;
     color: var(--warning-color);
-
-    &::before {
-      content: '*';
-      padding-right: 4px;
-    }
+    font-size: 15px;
   }
 
   form {
