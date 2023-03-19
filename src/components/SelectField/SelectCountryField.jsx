@@ -2,7 +2,7 @@ import { SelectContainer } from './SelectCountryField.styles';
 
 function SelectCountryField(props) {
   const { label, name, options, required } = props.question;
-  const { value, onChange, onBlur } = props;
+  const { onChange, onBlur } = props;
 
   return (
     <SelectContainer>
