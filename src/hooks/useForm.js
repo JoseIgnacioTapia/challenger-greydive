@@ -47,12 +47,12 @@ export const useForm = (initialForm, validateForm) => {
         });
         setLoading(false);
         setResponse(true);
-        setTimeout(() => setResponse(false), 5000);
         setForm(initialForm);
       } catch (error) {
         setLoading(false);
-        setResponse(error.status);
+        setResponse(error);
         setForm(initialForm);
+        setTimeout(() => setResponse(false), 5000);
       }
     }
   };
