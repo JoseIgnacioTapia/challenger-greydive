@@ -22,7 +22,6 @@ function Answers() {
   return (
     <Container>
       {sliceQuestions?.map((question, index) => {
-        console.log((index + 1) % 2 === 0);
         return (
           <div key={question.label} backgroundColor={(index + 1) % 2 === 0}>
             <h3>{question.label}</h3>
