@@ -11,7 +11,7 @@ export const getQuestionsItems = createAsyncThunk(
   'questionsAnswers/getQuestionsItems',
   async thunkAPI => {
     try {
-      const resp = await fetch('/src/api/db.json');
+      const resp = await fetch('/api/db.json');
       const data = await resp.json();
 
       return data.items;

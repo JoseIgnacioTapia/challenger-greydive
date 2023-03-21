@@ -36,7 +36,6 @@ function SurveyPage() {
     errors,
     loading,
     response,
-    resetForm,
     handleChange,
     handleBlur,
     handleSubmit,
