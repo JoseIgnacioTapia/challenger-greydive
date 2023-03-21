@@ -13,7 +13,7 @@ interfaz de app de encuesta. Y a partir de ella, poder entre otras cosas:
 
 ## Tecnologias utilizadas 💻
 
-React - React Router - Styled Components - Firebas - Vite
+React - React Router - Styled Components - Firebase - Vite
 
 # Requisitos para ejecutarla localmente ⚙
 
