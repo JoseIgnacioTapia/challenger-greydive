@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-// const URL = ''
+const URL = 'https://answers-f0c70-default-rtdb.firebaseio.com/answers.json';
 
 export const useForm = (initialForm, validateForm) => {
   const [form, setForm] = useState(initialForm);
@@ -37,15 +37,22 @@ export const useForm = (initialForm, validateForm) => {
       setLoading(true);
 
       try {
-        console.log('enviando');
-        await fetch();
+        await fetch(URL, {
+          method: 'POST',
+          body: JSON.stringify(form),
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+          },
+        });
         setLoading(false);
         setResponse(true);
-        setTimeout(() => setResponse(false), 500);
+        setForm(initialForm);
       } catch (error) {
         setLoading(false);
-        setResponse(error.status);
+        setResponse(error);
         setForm(initialForm);
+        setTimeout(() => setResponse(false), 5000);
       }
     }
   };

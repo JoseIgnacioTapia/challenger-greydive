@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SurveyPage />} />
-          <Route path="/answers" element={<Answers />} />
+          <Route path="/answers/:id" element={<Answers />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
