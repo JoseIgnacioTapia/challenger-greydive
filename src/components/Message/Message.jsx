@@ -1,5 +1,8 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { getAnswers } from '../../features/questionsAnswers/questionsAnswers.js';
 
 const Container = styled.div`
   display: flex;
@@ -39,6 +42,13 @@ const answerId = 'hello';
 function Message(props) {
   const { send } = props;
 
+  const { answers } = useSelector(state => state.questionsAnswers);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAnswers());
+  }, [dispatch]);
+
   return (
     <Container>
       {send ? (
@@ -61,7 +71,7 @@ function Message(props) {
             <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5"></path>
           </svg>
           <span>Formulario Enviado Correctamente!</span>
-          <StyledLink to={`/answers/${answerId}`}>
+          <StyledLink to={`/answers/${answers.id}`}>
             <span>Mira tus respuestas </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
