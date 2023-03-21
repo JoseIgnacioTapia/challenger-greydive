@@ -36,6 +36,7 @@ function SurveyPage() {
     errors,
     loading,
     response,
+    resetForm,
     handleChange,
     handleBlur,
     handleSubmit,
@@ -113,11 +114,9 @@ function SurveyPage() {
                 );
               case 'submit':
                 return (
-                  <Button
-                    key={question.label}
-                    type={question.type}
-                    label={question.label}
-                  />
+                  <div key={question.label}>
+                    <Button type={question.type} label={question.label} />
+                  </div>
                 );
               default:
                 return null;
